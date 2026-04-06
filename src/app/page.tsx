@@ -29,7 +29,7 @@ export default async function Home() {
       {/* ── Hero ── */}
       <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
         <Image
-          src="/images/products/hero-1.png"
+          src="/images/products/hero-1.jpg"
           alt="Yetitrends - Autentisk afrikansk mode"
           fill
           priority
