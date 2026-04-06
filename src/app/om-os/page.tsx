@@ -35,7 +35,7 @@ export default function OmOsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
             <Image
-              src="/images/products/brand-1.png"
+              src="/images/products/lifestyle-1.png"
               alt="Yetitrends afrikansk mode kollektion"
               fill
               className="object-cover"
@@ -90,7 +90,7 @@ export default function OmOsPage() {
             </div>
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden order-1 md:order-2">
               <Image
-                src="/images/products/brand-2.png"
+                src="/images/products/lifestyle-2.png"
                 alt="Yetitrends bæredygtig afrikansk mode"
                 fill
                 className="object-cover"
