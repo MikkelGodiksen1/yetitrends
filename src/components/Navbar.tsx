@@ -9,6 +9,7 @@ import { CartDrawer } from "./CartDrawer";
 
 const navLinks = [
   { href: "/katalog", label: "Katalog" },
+  { href: "/blog", label: "Blog" },
   { href: "/om-os", label: "Om os" },
   { href: "/kontakt", label: "Kontakt" },
 ];
