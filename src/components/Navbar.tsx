@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { CartDrawer } from "./CartDrawer";
@@ -21,11 +22,15 @@ export function Navbar() {
       <header className="sticky top-0 z-40 bg-bg/95 backdrop-blur border-b border-surface">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-display text-2xl font-bold tracking-tight text-accent"
-          >
-            Yetitrends
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/images/logo.jpg"
+              alt="Yetitrends — African Fashion"
+              width={160}
+              height={50}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
