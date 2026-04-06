@@ -24,7 +24,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               alt="Yetitrends — African Fashion"
               width={160}
               height={50}
