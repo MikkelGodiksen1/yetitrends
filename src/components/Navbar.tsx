@@ -5,17 +5,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/lib/cart";
+import { useLocale } from "@/lib/locale-context";
 import { CartDrawer } from "./CartDrawer";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const navLinks = [
-  { href: "/katalog", label: "Katalog" },
-  { href: "/blog", label: "Blog" },
-  { href: "/om-os", label: "Om os" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/katalog", key: "nav.katalog" },
+  { href: "/blog", key: "nav.blog" },
+  { href: "/om-os", key: "nav.about" },
+  { href: "/kontakt", key: "nav.contact" },
 ];
 
 export function Navbar() {
   const { cartCount, setIsOpen } = useCart();
+  const { t } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -42,19 +45,21 @@ export function Navbar() {
                   href={link.href}
                   className="text-sm font-medium text-text transition-colors hover:text-primary"
                 >
-                  {link.label}
+                  {t(link.key)}
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Right side: cart + mobile toggle */}
-          <div className="flex items-center gap-4">
+          {/* Right side: language + cart + mobile toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageSwitcher />
+
             <button
               type="button"
               onClick={() => setIsOpen(true)}
               className="relative text-text transition-colors hover:text-primary"
-              aria-label="Vis indkøbskurv"
+              aria-label={t("nav.cart")}
             >
               <ShoppingBag className="h-6 w-6" />
               {cartCount > 0 && (
@@ -90,7 +95,7 @@ export function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className="block text-sm font-medium text-text transition-colors hover:text-primary"
                   >
-                    {link.label}
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}

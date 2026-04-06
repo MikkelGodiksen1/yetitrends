@@ -11,6 +11,7 @@ import { eq, and, desc } from "drizzle-orm";
 import { getActiveCurrency, formatPrice } from "@/lib/currency";
 import { Truck, Heart, RotateCcw, Scissors, Leaf, Headphones, Star } from "lucide-react";
 import NewsletterForm from "@/components/NewsletterForm";
+import { T } from "@/components/TranslatedText";
 
 export default async function Home() {
   const currency = await getActiveCurrency();
@@ -90,16 +91,16 @@ export default async function Home() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 font-display">
-            Autentisk afrikansk mode
+            <T k="hero.title" />
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-            Unikke designs inspireret af Afrikas rige kulturarv
+            <T k="hero.subtitle" />
           </p>
           <Link
             href="/katalog"
             className="inline-block px-8 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-light transition-colors text-lg"
           >
-            Se kollektion
+            <T k="hero.cta" />
           </Link>
         </div>
       </section>
@@ -113,8 +114,8 @@ export default async function Home() {
                 <Truck className="w-5 h-5 text-primary" />
               </div>
               <div className="text-sm">
-                <p className="font-semibold text-text">Gratis fragt over 500 kr.</p>
-                <p className="text-muted">Levering i hele Norden</p>
+                <p className="font-semibold text-text"><T k="usp.shipping" /></p>
+                <p className="text-muted"><T k="usp.shipping.sub" /></p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -122,8 +123,8 @@ export default async function Home() {
                 <Heart className="w-5 h-5 text-primary" />
               </div>
               <div className="text-sm">
-                <p className="font-semibold text-text">Håndlavet i Nigeria</p>
-                <p className="text-muted">Autentisk afrikansk håndværk</p>
+                <p className="font-semibold text-text"><T k="usp.handmade" /></p>
+                <p className="text-muted"><T k="usp.handmade.sub" /></p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -131,8 +132,8 @@ export default async function Home() {
                 <RotateCcw className="w-5 h-5 text-primary" />
               </div>
               <div className="text-sm">
-                <p className="font-semibold text-text">30 dages returret</p>
-                <p className="text-muted">Fuld tilfredshedsgaranti</p>
+                <p className="font-semibold text-text"><T k="usp.returns" /></p>
+                <p className="text-muted"><T k="usp.returns.sub" /></p>
               </div>
             </div>
           </div>
@@ -142,10 +143,10 @@ export default async function Home() {
       {/* ═══ 3. KATEGORI-SEKTIONER ═══ */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-2 font-display">
-          Shop efter kategori
+          <T k="cat.title" />
         </h2>
         <p className="text-muted text-center mb-10">
-          Find din stil i vores håndlavede kollektioner
+          <T k="cat.subtitle" />
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
@@ -195,10 +196,10 @@ export default async function Home() {
       <section className="bg-surface">
         <div className="max-w-6xl mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold text-center mb-2 font-display">
-            Udvalgte produkter
+            <T k="featured.title" />
           </h2>
           <p className="text-muted text-center mb-10">
-            Håndplukkede favoritter fra vores kollektion
+            <T k="featured.subtitle" />
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -251,13 +252,13 @@ export default async function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <blockquote className="text-2xl md:text-4xl font-display font-bold text-white max-w-3xl leading-snug italic">
-            &ldquo;Hvert stykke tøj bærer en historie om tradition, håndværk og kreativitet&rdquo;
+            &ldquo;<T k="quote.text" />&rdquo;
           </blockquote>
           <Link
             href="/om-os"
             className="mt-8 inline-block px-6 py-3 border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-text transition-colors"
           >
-            Læs vores historie
+            <T k="quote.cta" />
           </Link>
         </div>
       </section>
@@ -266,14 +267,14 @@ export default async function Home() {
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl font-bold font-display">Nyt i shoppen</h2>
-            <p className="text-muted mt-1">De seneste tilføjelser til vores kollektion</p>
+            <h2 className="text-3xl font-bold font-display"><T k="new.title" /></h2>
+            <p className="text-muted mt-1"><T k="new.subtitle" /></p>
           </div>
           <Link
             href="/katalog"
             className="hidden sm:inline-block text-sm font-medium text-primary hover:text-primary-light transition-colors"
           >
-            Se alle →
+            <T k="new.all" />
           </Link>
         </div>
 
@@ -307,7 +308,7 @@ export default async function Home() {
 
         <div className="text-center mt-6 sm:hidden">
           <Link href="/katalog" className="text-sm font-medium text-primary">
-            Se alle produkter →
+            <T k="featured.all" />
           </Link>
         </div>
       </section>
@@ -316,7 +317,7 @@ export default async function Home() {
       <section className="bg-surface overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 pt-16 pb-6">
           <h2 className="text-3xl font-bold text-center mb-10 font-display">
-            Hvad vores kunder siger
+            <T k="testimonials.title" />
           </h2>
         </div>
 
@@ -378,24 +379,22 @@ export default async function Home() {
           </div>
           <div>
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-              Vores historie
+              <T k="story.label" />
             </span>
             <h2 className="text-3xl font-bold mt-2 mb-4 font-display">
-              Fra Nigeria til Norden
+              <T k="story.title" />
             </h2>
             <p className="text-muted leading-relaxed mb-4">
-              Yetitrends fejrer skønheden i afrikansk mode og kultur. Vi bringer autentiske,
-              håndlavede designs fra talentfulde afrikanske kunstnere direkte til Skandinavien.
+              <T k="story.p1" />
             </p>
             <p className="text-muted leading-relaxed mb-6">
-              Hvert stykke tøj fortæller en historie om tradition, håndværk og kreativitet.
-              Vi tror på bæredygtig mode, der respekterer både mennesker og planeten.
+              <T k="story.p2" />
             </p>
             <Link
               href="/om-os"
               className="inline-block px-6 py-2.5 border-2 border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white transition-colors"
             >
-              Læs mere om os
+              <T k="story.cta" />
             </Link>
           </div>
         </div>
@@ -405,7 +404,7 @@ export default async function Home() {
       <section className="bg-surface">
         <div className="max-w-6xl mx-auto px-4 py-16 text-center">
           <h2 className="text-3xl font-bold mb-2 font-display">
-            Følg os på Instagram
+            <T k="instagram.title" />
           </h2>
           <a
             href="https://www.instagram.com/yetitrends_/"
@@ -447,7 +446,7 @@ export default async function Home() {
       {/* ═══ 10. HVORFOR YETITRENDS ═══ */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-10 font-display">
-          Hvorfor Yetitrends?
+          <T k="why.title" />
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -489,8 +488,8 @@ export default async function Home() {
           <div className="max-w-6xl mx-auto px-4 py-16">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-3xl font-bold font-display">Fra bloggen</h2>
-                <p className="text-muted mt-1">Inspiration og guides om afrikansk mode</p>
+                <h2 className="text-3xl font-bold font-display"><T k="blog.title" /></h2>
+                <p className="text-muted mt-1"><T k="blog.subtitle" /></p>
               </div>
               <Link
                 href="/blog"
@@ -550,11 +549,10 @@ export default async function Home() {
       <section className="bg-accent text-white">
         <div className="max-w-6xl mx-auto px-4 py-16 text-center">
           <h2 className="text-3xl font-bold mb-2 font-display">
-            Bliv en del af fællesskabet
+            <T k="newsletter.title" />
           </h2>
           <p className="text-white/80 mb-8 max-w-md mx-auto">
-            Tilmeld dig vores nyhedsbrev og vær den første til at se nye
-            kollektioner og eksklusive tilbud.
+            <T k="newsletter.subtitle" />
           </p>
           <NewsletterForm />
         </div>

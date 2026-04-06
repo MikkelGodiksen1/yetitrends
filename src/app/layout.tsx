@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Playfair_Display } from "next/font/google";
 import { CartProvider } from "@/lib/cart";
+import { LocaleProvider } from "@/lib/locale-context";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
@@ -28,11 +29,13 @@ export default function RootLayout({
   return (
     <html lang="da" className={`${playfair.variable} ${geist.className}`}>
       <body className="min-h-screen flex flex-col bg-bg text-text antialiased">
-        <CartProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </CartProvider>
+        <LocaleProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </CartProvider>
+        </LocaleProvider>
       </body>
     </html>
   );
