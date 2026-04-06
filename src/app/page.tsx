@@ -27,13 +27,13 @@ export default async function Home() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-[80vh] min-h-[480px] w-full overflow-hidden">
         <Image
           src="/images/products/hero-1.jpg"
           alt="Yetitrends - Autentisk afrikansk mode"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
