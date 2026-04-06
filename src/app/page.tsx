@@ -462,8 +462,8 @@ export default async function Home() {
             },
             {
               icon: Heart,
-              titleKey: "why.fairtrade.title",
-              descKey: "why.fairtrade.desc",
+              titleKey: "why.fair.title",
+              descKey: "why.fair.desc",
             },
             {
               icon: Headphones,
