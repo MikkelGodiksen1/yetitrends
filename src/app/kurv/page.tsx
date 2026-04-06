@@ -4,9 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
+import { useLocale } from "@/lib/locale-context";
 
 export default function KurvPage() {
   const { items, updateQuantity, removeItem, cartTotal, cartCount } = useCart();
+  const { t } = useLocale();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -57,15 +59,15 @@ export default function KurvPage() {
   if (cartCount === 0) {
     return (
       <section className="mx-auto max-w-2xl px-4 py-24 text-center">
-        <h1 className="mb-4 font-display text-3xl font-bold">Din kurv er tom</h1>
+        <h1 className="mb-4 font-display text-3xl font-bold">{t("cart.empty.title")}</h1>
         <p className="mb-8 text-muted">
-          Du har ikke tilf&oslash;jet nogen produkter endnu.
+          {t("cart.empty.desc")}
         </p>
         <Link
           href="/katalog"
           className="inline-block rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
         >
-          Se vores katalog
+          {t("cart.empty.cta")}
         </Link>
       </section>
     );
@@ -73,7 +75,7 @@ export default function KurvPage() {
 
   return (
     <section className="mx-auto max-w-3xl px-4 py-16">
-      <h1 className="mb-8 font-display text-3xl font-bold">Din kurv</h1>
+      <h1 className="mb-8 font-display text-3xl font-bold">{t("cart.your")}</h1>
 
       <ul className="divide-y divide-surface">
         {items.map((item) => (
@@ -96,7 +98,7 @@ export default function KurvPage() {
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-xs text-muted">
-                  Intet billede
+                  {t("cart.noimage")}
                 </div>
               )}
             </Link>
@@ -112,7 +114,7 @@ export default function KurvPage() {
                 </Link>
                 {item.size && (
                   <p className="mt-0.5 text-sm text-muted">
-                    Str. {item.size}
+                    {t("cart.size.label")} {item.size}
                   </p>
                 )}
               </div>
@@ -144,7 +146,7 @@ export default function KurvPage() {
                   className="ml-4 text-sm text-muted hover:text-primary"
                   aria-label="Fjern fra kurv"
                 >
-                  Fjern
+                  {t("cart.remove")}
                 </button>
               </div>
             </div>
@@ -160,7 +162,7 @@ export default function KurvPage() {
       {/* Subtotal + actions */}
       <div className="mt-8 border-t border-surface pt-6">
         <div className="flex items-center justify-between text-lg font-semibold">
-          <span>Subtotal</span>
+          <span>{t("cart.subtotal")}</span>
           <span>{formatPrice(cartTotal)}</span>
         </div>
 
@@ -173,14 +175,14 @@ export default function KurvPage() {
           disabled={loading}
           className="mt-6 w-full rounded-md bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {loading ? "Omdirigerer..." : "Gå til betaling"}
+          {loading ? t("cart.redirecting") : t("cart.checkout")}
         </button>
 
         <Link
           href="/katalog"
           className="mt-4 block text-center text-sm text-muted hover:text-text"
         >
-          &larr; Forts&aelig;t med at handle
+          &larr; {t("cart.continue")}
         </Link>
       </div>
     </section>

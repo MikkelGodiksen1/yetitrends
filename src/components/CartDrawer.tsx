@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Plus, Minus, Trash2 } from "lucide-react";
 import { useCart } from "@/lib/cart";
+import { useLocale } from "@/lib/locale-context";
 
 function formatPriceClient(amount: number, currency: string) {
   const val = amount / 100;
@@ -15,6 +16,7 @@ function formatPriceClient(amount: number, currency: string) {
 export function CartDrawer() {
   const { items, updateQuantity, removeItem, cartTotal, isOpen, setIsOpen } =
     useCart();
+  const { t } = useLocale();
 
   // Lock body scroll when drawer is open
   useEffect(() => {
@@ -51,13 +53,13 @@ export function CartDrawer() {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-surface px-5 py-4">
           <h2 className="font-display text-lg font-semibold text-text">
-            Indkøbskurv
+            {t("cart.title")}
           </h2>
           <button
             type="button"
             onClick={() => setIsOpen(false)}
             className="text-muted transition-colors hover:text-text"
-            aria-label="Luk kurv"
+            aria-label={t("cart.close")}
           >
             <X className="h-5 w-5" />
           </button>
@@ -67,7 +69,7 @@ export function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-5 py-4">
           {items.length === 0 ? (
             <p className="mt-8 text-center text-muted">
-              Din kurv er tom.
+              {t("cart.empty.msg")}
             </p>
           ) : (
             <ul className="space-y-5">
@@ -92,7 +94,7 @@ export function CartDrawer() {
                         {item.productName}
                       </p>
                       <p className="text-xs text-muted">
-                        Str. {item.size}
+                        {t("cart.size.label")} {item.size}
                       </p>
                     </div>
 
@@ -162,7 +164,7 @@ export function CartDrawer() {
         {items.length > 0 && (
           <div className="border-t border-surface px-5 py-5">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-sm font-medium text-muted">Subtotal</span>
+              <span className="text-sm font-medium text-muted">{t("cart.subtotal")}</span>
               <span className="text-lg font-semibold text-text">
                 {formatPriceClient(cartTotal, currency)}
               </span>
@@ -172,7 +174,7 @@ export function CartDrawer() {
               onClick={() => setIsOpen(false)}
               className="block w-full rounded-md bg-primary px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
-              Ga til betaling
+              {t("cart.checkout")}
             </Link>
           </div>
         )}

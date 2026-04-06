@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
+import { useLocale } from "@/lib/locale-context";
 import type { SupportedCurrency } from "@/lib/currency";
 
 interface AddToCartButtonProps {
@@ -24,6 +25,7 @@ export default function AddToCartButton({
   imageUrl,
 }: AddToCartButtonProps) {
   const { addItem } = useCart();
+  const { t } = useLocale();
   const sizeList = sizes
     .split(",")
     .map((s) => s.trim())
@@ -53,7 +55,7 @@ export default function AddToCartButton({
             htmlFor="size-select"
             className="mb-1 block text-sm font-medium text-text"
           >
-            Størrelse
+            {t("cart.size")}
           </label>
           <select
             id="size-select"
@@ -75,7 +77,7 @@ export default function AddToCartButton({
         disabled={!selectedSize && sizeList.length > 0}
         className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {added ? "Tilføjet!" : "Tilføj til kurv"}
+        {added ? t("cart.added") : t("cart.add")}
       </button>
     </div>
   );

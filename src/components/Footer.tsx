@@ -1,18 +1,7 @@
+"use client";
+
 import Link from "next/link";
-
-const shopLinks = [
-  { href: "/katalog", label: "Katalog" },
-  { href: "/blog", label: "Blog" },
-  { href: "/om-os", label: "Om os" },
-  { href: "/kontakt", label: "Kontakt" },
-];
-
-const aboutLinks = [
-  { href: "/om-os", label: "Vores historie" },
-  { href: "/kontakt", label: "Kontakt" },
-  { href: "/handelsbetingelser", label: "Handelsbetingelser" },
-  { href: "/privatlivspolitik", label: "Privatlivspolitik" },
-];
+import { useLocale } from "@/lib/locale-context";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -31,13 +20,29 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const { t } = useLocale();
+
+  const shopLinks = [
+    { href: "/katalog", label: t("nav.katalog") },
+    { href: "/blog", label: t("nav.blog") },
+    { href: "/om-os", label: t("nav.about") },
+    { href: "/kontakt", label: t("nav.contact") },
+  ];
+
+  const aboutLinks = [
+    { href: "/om-os", label: t("footer.history") },
+    { href: "/kontakt", label: t("nav.contact") },
+    { href: "/handelsbetingelser", label: t("footer.terms") },
+    { href: "/privatlivspolitik", label: t("footer.privacy") },
+  ];
+
   return (
     <footer className="bg-accent text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Shop */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">Shop</h3>
+            <h3 className="font-display text-lg font-semibold mb-4">{t("footer.shop")}</h3>
             <ul className="space-y-2">
               {shopLinks.map((link) => (
                 <li key={link.href}>
@@ -55,7 +60,7 @@ export function Footer() {
           {/* Om Yetitrends */}
           <div>
             <h3 className="font-display text-lg font-semibold mb-4">
-              Om Yetitrends
+              {t("footer.about")}
             </h3>
             <ul className="space-y-2">
               {aboutLinks.map((link) => (
@@ -103,15 +108,15 @@ export function Footer() {
           {/* Newsletter */}
           <div>
             <h3 className="font-display text-lg font-semibold mb-4">
-              Nyhedsbrev
+              {t("footer.newsletter")}
             </h3>
             <p className="mb-3 text-sm text-white/70">
-              Tilmeld dig og vær den første til at se nye kollektioner.
+              {t("footer.newsletter.sub")}
             </p>
             <form className="flex">
               <input
                 type="email"
-                placeholder="Din e-mail"
+                placeholder={t("footer.newsletter.placeholder")}
                 className="w-full rounded-l-md bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 outline-none focus:ring-2 focus:ring-primary"
                 required
               />
@@ -119,14 +124,14 @@ export function Footer() {
                 type="submit"
                 className="rounded-r-md bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-light"
               >
-                Tilmeld
+                {t("footer.newsletter.submit")}
               </button>
             </form>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/20 pt-6 text-center text-sm text-white/50">
-          &copy; 2026 Yetitrends. Alle rettigheder forbeholdes.
+          {t("footer.copyright")}
         </div>
       </div>
     </footer>

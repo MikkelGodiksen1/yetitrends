@@ -151,29 +151,29 @@ export default async function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
-              title: "Kjoler",
+              titleKey: "cat.dresses",
               image: "/images/products/dress-d-1.png",
               href: "/katalog",
             },
             {
-              title: "Kimono-jakker",
+              titleKey: "cat.kimonos",
               image: "/images/products/kimono-1.png",
               href: "/katalog",
             },
             {
-              title: "Two-Piece Sæt",
+              titleKey: "cat.twopiece",
               image: "/images/products/two-piece-1.png",
               href: "/katalog",
             },
           ].map((cat) => (
             <Link
-              key={cat.title}
+              key={cat.titleKey}
               href={cat.href}
               className="group relative aspect-[3/4] overflow-hidden rounded-xl"
             >
               <Image
                 src={cat.image}
-                alt={cat.title}
+                alt={cat.titleKey}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 33vw"
@@ -181,10 +181,10 @@ export default async function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-2xl font-bold text-white font-display">
-                  {cat.title}
+                  <T k={cat.titleKey} />
                 </h3>
                 <span className="text-sm text-white/80 mt-1 inline-block group-hover:translate-x-1 transition-transform">
-                  Se udvalg →
+                  <T k="cat.cta" />
                 </span>
               </div>
             </Link>
@@ -235,7 +235,7 @@ export default async function Home() {
               href="/katalog"
               className="inline-block px-8 py-3 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white transition-colors"
             >
-              Se alle produkter →
+              <T k="featured.all" />
             </Link>
           </div>
         </div>
@@ -325,23 +325,23 @@ export default async function Home() {
         <div className="relative pb-16">
           <div className="flex animate-marquee gap-6 hover:[animation-play-state:paused]">
             {[
-              { quote: "Fantastisk kvalitet og super hurtig levering! Min ankara-kjole er endnu smukkere i virkeligheden end på billederne.", name: "Amina K.", location: "København" },
-              { quote: "Min kimono-jakke får komplimenter hver eneste gang jeg har den på. Det er mit yndlingsstykke tøj!", name: "Sara L.", location: "Stockholm" },
-              { quote: "Elsker de unikke mønstre og at det er ægte afrikansk håndværk. Man kan mærke kvaliteten.", name: "Fatima O.", location: "Oslo" },
-              { quote: "Bedste online-shopping oplevelse i lang tid. Tøjet sidder perfekt og stoffet er fantastisk blødt.", name: "Marie H.", location: "Aarhus" },
-              { quote: "Jeg har købt tre kimonoer nu — hver enkelt er unik og får mig til at føle mig som en dronning.", name: "Lina B.", location: "Malmö" },
-              { quote: "Virkelig flot two-piece sæt. Farverne er præcis som på billederne. Kommer til at købe mere!", name: "Nadia R.", location: "Helsinki" },
-              { quote: "Hurtig levering til Norge og pakken var smukt indpakket. Føles som en gave til mig selv.", name: "Ingrid T.", location: "Bergen" },
-              { quote: "Modtog så mange komplimenter til min venindes bryllup. Alle ville vide hvor kjolen var fra!", name: "Chioma A.", location: "København" },
+              { quoteKey: "review.1", name: "Amina K.", location: "København" },
+              { quoteKey: "review.2", name: "Sara L.", location: "Stockholm" },
+              { quoteKey: "review.3", name: "Fatima O.", location: "Oslo" },
+              { quoteKey: "review.4", name: "Marie H.", location: "Aarhus" },
+              { quoteKey: "review.5", name: "Lina B.", location: "Malmö" },
+              { quoteKey: "review.6", name: "Nadia R.", location: "Helsinki" },
+              { quoteKey: "review.7", name: "Ingrid T.", location: "Bergen" },
+              { quoteKey: "review.8", name: "Chioma A.", location: "København" },
               // Duplicate for seamless loop
-              { quote: "Fantastisk kvalitet og super hurtig levering! Min ankara-kjole er endnu smukkere i virkeligheden end på billederne.", name: "Amina K.", location: "København" },
-              { quote: "Min kimono-jakke får komplimenter hver eneste gang jeg har den på. Det er mit yndlingsstykke tøj!", name: "Sara L.", location: "Stockholm" },
-              { quote: "Elsker de unikke mønstre og at det er ægte afrikansk håndværk. Man kan mærke kvaliteten.", name: "Fatima O.", location: "Oslo" },
-              { quote: "Bedste online-shopping oplevelse i lang tid. Tøjet sidder perfekt og stoffet er fantastisk blødt.", name: "Marie H.", location: "Aarhus" },
-              { quote: "Jeg har købt tre kimonoer nu — hver enkelt er unik og får mig til at føle mig som en dronning.", name: "Lina B.", location: "Malmö" },
-              { quote: "Virkelig flot two-piece sæt. Farverne er præcis som på billederne. Kommer til at købe mere!", name: "Nadia R.", location: "Helsinki" },
-              { quote: "Hurtig levering til Norge og pakken var smukt indpakket. Føles som en gave til mig selv.", name: "Ingrid T.", location: "Bergen" },
-              { quote: "Modtog så mange komplimenter til min venindes bryllup. Alle ville vide hvor kjolen var fra!", name: "Chioma A.", location: "København" },
+              { quoteKey: "review.1", name: "Amina K.", location: "København" },
+              { quoteKey: "review.2", name: "Sara L.", location: "Stockholm" },
+              { quoteKey: "review.3", name: "Fatima O.", location: "Oslo" },
+              { quoteKey: "review.4", name: "Marie H.", location: "Aarhus" },
+              { quoteKey: "review.5", name: "Lina B.", location: "Malmö" },
+              { quoteKey: "review.6", name: "Nadia R.", location: "Helsinki" },
+              { quoteKey: "review.7", name: "Ingrid T.", location: "Bergen" },
+              { quoteKey: "review.8", name: "Chioma A.", location: "København" },
             ].map((t, idx) => (
               <div
                 key={`${t.name}-${idx}`}
@@ -353,7 +353,7 @@ export default async function Home() {
                   ))}
                 </div>
                 <p className="text-text leading-relaxed mb-4 italic text-sm">
-                  &ldquo;{t.quote}&rdquo;
+                  &ldquo;<T k={t.quoteKey} />&rdquo;
                 </p>
                 <div className="text-sm">
                   <span className="font-semibold text-text">{t.name}</span>
@@ -452,31 +452,31 @@ export default async function Home() {
           {[
             {
               icon: Scissors,
-              title: "Autentisk håndværk",
-              desc: "Hvert design er lavet af dygtige håndværkere med generationers erfaring",
+              titleKey: "why.craft.title",
+              descKey: "why.craft.desc",
             },
             {
               icon: Leaf,
-              title: "Premium bomuld",
-              desc: "100% bomuld — åndbart, holdbart og komfortabelt i alle klimaer",
+              titleKey: "why.cotton.title",
+              descKey: "why.cotton.desc",
             },
             {
               icon: Heart,
-              title: "Fair trade",
-              desc: "Direkte samarbejde med producenter i Nigeria. Retfærdig løn og vilkår",
+              titleKey: "why.fairtrade.title",
+              descKey: "why.fairtrade.desc",
             },
             {
               icon: Headphones,
-              title: "Nordisk service",
-              desc: "Dansk kundeservice, hurtig levering til hele Norden",
+              titleKey: "why.service.title",
+              descKey: "why.service.desc",
             },
           ].map((f) => (
-            <div key={f.title} className="text-center">
+            <div key={f.titleKey} className="text-center">
               <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                 <f.icon className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-bold text-text mb-2">{f.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{f.desc}</p>
+              <h3 className="font-bold text-text mb-2"><T k={f.titleKey} /></h3>
+              <p className="text-sm text-muted leading-relaxed"><T k={f.descKey} /></p>
             </div>
           ))}
         </div>
@@ -495,7 +495,7 @@ export default async function Home() {
                 href="/blog"
                 className="hidden sm:inline-block text-sm font-medium text-primary hover:text-primary-light transition-colors"
               >
-                Se alle indlæg →
+                <T k="blog.all" />
               </Link>
             </div>
 
@@ -538,7 +538,7 @@ export default async function Home() {
 
             <div className="text-center mt-8 sm:hidden">
               <Link href="/blog" className="text-sm font-medium text-primary">
-                Se alle indlæg →
+                <T k="blog.all" />
               </Link>
             </div>
           </div>

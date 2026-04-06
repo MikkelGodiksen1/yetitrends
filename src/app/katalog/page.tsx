@@ -4,6 +4,7 @@ import { products, productImages, productPrices } from "@/lib/db/schema";
 import { eq, and } from "drizzle-orm";
 import { getActiveCurrency } from "@/lib/currency";
 import ProductCard from "@/components/ProductCard";
+import { T } from "@/components/TranslatedText";
 
 export const metadata: Metadata = {
   title: "Katalog — Yetitrends",
@@ -43,12 +44,12 @@ export default async function KatalogPage() {
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="mb-8 text-2xl font-bold text-text sm:text-3xl font-display">
-        Katalog
+        <T k="katalog.title" />
       </h1>
 
       {rows.length === 0 ? (
         <p className="text-muted">
-          Ingen produkter fundet.
+          <T k="katalog.empty" />
         </p>
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
