@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const shopLinks = [
   { href: "/katalog", label: "Katalog" },
-  { href: "/katalog?category=kjoler", label: "Kjoler" },
-  { href: "/katalog?category=tilbehoer", label: "Tilbehør" },
-  { href: "/katalog?category=nyheder", label: "Nyheder" },
+  { href: "/blog", label: "Blog" },
+  { href: "/om-os", label: "Om os" },
+  { href: "/kontakt", label: "Kontakt" },
 ];
 
 const aboutLinks = [
@@ -106,7 +106,7 @@ export function Footer() {
               Nyhedsbrev
             </h3>
             <p className="mb-3 text-sm text-white/70">
-              Tilmeld dig og vær den forste til at se nye kollektioner.
+              Tilmeld dig og vær den første til at se nye kollektioner.
             </p>
             <form className="flex">
               <input

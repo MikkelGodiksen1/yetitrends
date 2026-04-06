@@ -53,7 +53,7 @@ export function Navbar() {
               type="button"
               onClick={() => setIsOpen(true)}
               className="relative text-text transition-colors hover:text-primary"
-              aria-label="Vis indkobskurv"
+              aria-label="Vis indkøbskurv"
             >
               <ShoppingBag className="h-6 w-6" />
               {cartCount > 0 && (

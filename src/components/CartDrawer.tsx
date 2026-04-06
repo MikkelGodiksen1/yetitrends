@@ -51,7 +51,7 @@ export function CartDrawer() {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-surface px-5 py-4">
           <h2 className="font-display text-lg font-semibold text-text">
-            Indkobskurv
+            Indkøbskurv
           </h2>
           <button
             type="button"
