@@ -110,10 +110,10 @@ export default async function ProductDetailPage({ params }: Props) {
         {/* Product info */}
         <div className="flex flex-col gap-6">
           <div>
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
+            <h1 className="text-2xl font-bold text-text sm:text-3xl font-display">
               {product.name}
             </h1>
-            <p className="mt-2 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
+            <p className="mt-2 text-xl font-semibold text-primary">
               {formatPrice(price, currency)}
             </p>
           </div>
@@ -130,11 +130,11 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {product.descriptionHtml ? (
             <div
-              className="prose prose-zinc dark:prose-invert max-w-none text-sm leading-relaxed"
+              className="max-w-none text-sm leading-relaxed text-muted"
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
           ) : product.description ? (
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="text-sm leading-relaxed text-muted">
               {product.description}
             </p>
           ) : null}

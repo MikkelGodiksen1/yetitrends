@@ -22,9 +22,9 @@ export default function ProductCard({
   return (
     <Link
       href={`/katalog/${slug}`}
-      className="group block overflow-hidden rounded-lg border border-zinc-200 bg-white transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+      className="group block overflow-hidden rounded-lg border border-surface bg-card transition-shadow hover:shadow-md"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface">
         <Image
           src={imageUrl}
           alt={alt || name}
@@ -34,10 +34,10 @@ export default function ProductCard({
         />
       </div>
       <div className="p-3 sm:p-4">
-        <h2 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 sm:text-base">
+        <h2 className="text-sm font-medium text-text sm:text-base">
           {name}
         </h2>
-        <p className="mt-1 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+        <p className="mt-1 text-sm font-semibold text-primary">
           {formatPrice(price, currency)}
         </p>
       </div>

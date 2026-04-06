@@ -51,7 +51,7 @@ export default function AddToCartButton({
         <div>
           <label
             htmlFor="size-select"
-            className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+            className="mb-1 block text-sm font-medium text-text"
           >
             Størrelse
           </label>
@@ -59,7 +59,7 @@ export default function AddToCartButton({
             id="size-select"
             value={selectedSize}
             onChange={(e) => setSelectedSize(e.target.value)}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+            className="w-full rounded-lg border border-surface bg-white px-3 py-2.5 text-sm text-text focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           >
             {sizeList.map((size) => (
               <option key={size} value={size}>
@@ -73,7 +73,7 @@ export default function AddToCartButton({
       <button
         onClick={handleAdd}
         disabled={!selectedSize && sizeList.length > 0}
-        className="w-full rounded-md bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
       >
         {added ? "Tilføjet!" : "Tilføj til kurv"}
       </button>

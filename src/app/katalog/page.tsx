@@ -42,12 +42,12 @@ export default async function KatalogPage() {
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="mb-8 text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
+      <h1 className="mb-8 text-2xl font-bold text-text sm:text-3xl font-display">
         Katalog
       </h1>
 
       {rows.length === 0 ? (
-        <p className="text-zinc-500 dark:text-zinc-400">
+        <p className="text-muted">
           Ingen produkter fundet.
         </p>
       ) : (

@@ -13,7 +13,7 @@ export default function ProductGallery({ images }: { images: GalleryImage[] }) {
 
   if (images.length === 0) {
     return (
-      <div className="aspect-[3/4] w-full rounded-lg bg-zinc-100 dark:bg-zinc-900" />
+      <div className="aspect-[3/4] w-full rounded-lg bg-surface" />
     );
   }
 
@@ -21,7 +21,7 @@ export default function ProductGallery({ images }: { images: GalleryImage[] }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-surface">
         <Image
           src={activeImage.url}
           alt={activeImage.alt}
@@ -40,7 +40,7 @@ export default function ProductGallery({ images }: { images: GalleryImage[] }) {
               onClick={() => setActiveIndex(index)}
               className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border-2 transition-colors sm:h-20 sm:w-20 ${
                 index === activeIndex
-                  ? "border-zinc-900 dark:border-zinc-100"
+                  ? "border-primary"
                   : "border-transparent opacity-60 hover:opacity-100"
               }`}
             >
