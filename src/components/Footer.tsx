@@ -16,8 +16,8 @@ const aboutLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://facebook.com/yetitrends", label: "Facebook", icon: Globe },
-  { href: "https://instagram.com/yetitrends", label: "Instagram", icon: Heart },
+  { href: "https://www.facebook.com/ytnds", label: "Facebook", icon: Globe },
+  { href: "https://www.instagram.com/yetitrends_/", label: "Instagram", icon: Heart },
   { href: "https://tiktok.com/@yetitrends", label: "TikTok", icon: Music2 },
 ];
 

@@ -44,7 +44,7 @@ export default function KontaktPage() {
           <h2 className="text-xl font-bold mt-8 mb-4">Følg os</h2>
           <div className="flex gap-4">
             <a
-              href="https://instagram.com/yetitrends"
+              href="https://www.instagram.com/yetitrends_/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-accent transition-colors"
@@ -52,7 +52,7 @@ export default function KontaktPage() {
               Instagram
             </a>
             <a
-              href="https://facebook.com/yetitrends"
+              href="https://www.facebook.com/ytnds"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-accent transition-colors"
