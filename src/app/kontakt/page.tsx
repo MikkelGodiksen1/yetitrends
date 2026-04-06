@@ -25,7 +25,7 @@ export default function KontaktPage() {
           <dl className="space-y-4 text-muted">
             <div>
               <dt className="font-medium text-text">Adresse</dt>
-              <dd>København, Danmark</dd>
+              <dd>Vasevej 109C, Copenhagen, Denmark</dd>
             </div>
             <div>
               <dt className="font-medium text-text">E-mail</dt>
