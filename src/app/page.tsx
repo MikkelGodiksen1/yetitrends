@@ -312,47 +312,46 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ═══ 7. TESTIMONIALS ═══ */}
-      <section className="bg-surface">
-        <div className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold text-center mb-2 font-display">
+      {/* ═══ 7. TESTIMONIALS (scrolling carousel) ═══ */}
+      <section className="bg-surface overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 pt-16 pb-6">
+          <h2 className="text-3xl font-bold text-center mb-10 font-display">
             Hvad vores kunder siger
           </h2>
-          <p className="text-muted text-center mb-10">
-            Ægte anmeldelser fra glade kunder i Norden
-          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Infinite scroll marquee */}
+        <div className="relative pb-16">
+          <div className="flex animate-marquee gap-6 hover:[animation-play-state:paused]">
             {[
-              {
-                quote: "Fantastisk kvalitet og super hurtig levering! Min ankara-kjole er endnu smukkere i virkeligheden end på billederne.",
-                name: "Amina K.",
-                location: "København",
-              },
-              {
-                quote: "Min kimono-jakke får komplimenter hver eneste gang jeg har den på. Det er mit yndlingsstykke tøj!",
-                name: "Sara L.",
-                location: "Stockholm",
-              },
-              {
-                quote: "Elsker de unikke mønstre og at det er ægte afrikansk håndværk. Man kan mærke kvaliteten.",
-                name: "Fatima O.",
-                location: "Oslo",
-              },
-            ].map((t) => (
+              { quote: "Fantastisk kvalitet og super hurtig levering! Min ankara-kjole er endnu smukkere i virkeligheden end på billederne.", name: "Amina K.", location: "København" },
+              { quote: "Min kimono-jakke får komplimenter hver eneste gang jeg har den på. Det er mit yndlingsstykke tøj!", name: "Sara L.", location: "Stockholm" },
+              { quote: "Elsker de unikke mønstre og at det er ægte afrikansk håndværk. Man kan mærke kvaliteten.", name: "Fatima O.", location: "Oslo" },
+              { quote: "Bedste online-shopping oplevelse i lang tid. Tøjet sidder perfekt og stoffet er fantastisk blødt.", name: "Marie H.", location: "Aarhus" },
+              { quote: "Jeg har købt tre kimonoer nu — hver enkelt er unik og får mig til at føle mig som en dronning.", name: "Lina B.", location: "Malmö" },
+              { quote: "Virkelig flot two-piece sæt. Farverne er præcis som på billederne. Kommer til at købe mere!", name: "Nadia R.", location: "Helsinki" },
+              { quote: "Hurtig levering til Norge og pakken var smukt indpakket. Føles som en gave til mig selv.", name: "Ingrid T.", location: "Bergen" },
+              { quote: "Modtog så mange komplimenter til min venindes bryllup. Alle ville vide hvor kjolen var fra!", name: "Chioma A.", location: "København" },
+              // Duplicate for seamless loop
+              { quote: "Fantastisk kvalitet og super hurtig levering! Min ankara-kjole er endnu smukkere i virkeligheden end på billederne.", name: "Amina K.", location: "København" },
+              { quote: "Min kimono-jakke får komplimenter hver eneste gang jeg har den på. Det er mit yndlingsstykke tøj!", name: "Sara L.", location: "Stockholm" },
+              { quote: "Elsker de unikke mønstre og at det er ægte afrikansk håndværk. Man kan mærke kvaliteten.", name: "Fatima O.", location: "Oslo" },
+              { quote: "Bedste online-shopping oplevelse i lang tid. Tøjet sidder perfekt og stoffet er fantastisk blødt.", name: "Marie H.", location: "Aarhus" },
+              { quote: "Jeg har købt tre kimonoer nu — hver enkelt er unik og får mig til at føle mig som en dronning.", name: "Lina B.", location: "Malmö" },
+              { quote: "Virkelig flot two-piece sæt. Farverne er præcis som på billederne. Kommer til at købe mere!", name: "Nadia R.", location: "Helsinki" },
+              { quote: "Hurtig levering til Norge og pakken var smukt indpakket. Føles som en gave til mig selv.", name: "Ingrid T.", location: "Bergen" },
+              { quote: "Modtog så mange komplimenter til min venindes bryllup. Alle ville vide hvor kjolen var fra!", name: "Chioma A.", location: "København" },
+            ].map((t, idx) => (
               <div
-                key={t.name}
-                className="bg-card rounded-xl p-6 shadow-sm"
+                key={`${t.name}-${idx}`}
+                className="flex-shrink-0 w-[300px] sm:w-[350px] bg-card rounded-xl p-6 shadow-sm"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-gold text-gold"
-                    />
+                    <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                   ))}
                 </div>
-                <p className="text-text leading-relaxed mb-4 italic">
+                <p className="text-text leading-relaxed mb-4 italic text-sm">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="text-sm">
